@@ -2,15 +2,169 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "ML teaching",
+    "title": "Research Projects",
     "section": "",
-    "text": "dddddd This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Singapore propertities\nPortfolio choice"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Teaching",
     "section": "",
-    "text": "About this site"
+    "text": "clustering\nMulti-threading vs Multi-processing"
+  },
+  {
+    "objectID": "ML_teaching.html#ideas-may-include-later",
+    "href": "ML_teaching.html#ideas-may-include-later",
+    "title": "Machine learning ST3189",
+    "section": "Ideas (may include later)",
+    "text": "Ideas (may include later)\n\nAdd one economic examples. fiscal policy or monetary policy regime"
+  },
+  {
+    "objectID": "ML_teaching.html#todays-topic-and-outline",
+    "href": "ML_teaching.html#todays-topic-and-outline",
+    "title": "Machine learning ST3189",
+    "section": "Today’s topic and Outline",
+    "text": "Today’s topic and Outline\n\nOverview on Clustering\nk-means methods: idea, math, challenges\nAn example using R to implement K-means\nReference: See more detailed discussion in (James et al. 2013, 112:ch12.4; and Bishop 2006, ch9.1)"
+  },
+  {
+    "objectID": "ML_teaching.html#clustering",
+    "href": "ML_teaching.html#clustering",
+    "title": "Machine learning ST3189",
+    "section": "Clustering",
+    "text": "Clustering\n\nWhat is clustering: category our data into several groups sharing similar properties.\n\nExample: Imagine you’re organizing a large party and you have the task of assigning guests to 4 different tables. Your goal is to ensure that the people sitting at each table have the most in common with each other.\nresearch: we category the country by geo loaciaon, size, and development level ) \n\nOther Applications: the recommendation (advertisement) in the social media, video recommandations"
+  },
+  {
+    "objectID": "ML_teaching.html#clustering-1",
+    "href": "ML_teaching.html#clustering-1",
+    "title": "Machine learning ST3189",
+    "section": "Clustering",
+    "text": "Clustering\n\nProperties: Unsupervised learning (unlike other forecasting algorithms=&gt; we train the data and let the algorithm to know the answer we assined)\nExisting Methods in machine learning fields: k-means, Hierarchical, DBSCAN, Gaussian Mixture Models (GMM) (figures)\nwhy we need algorighm =&gt;"
+  },
+  {
+    "objectID": "ML_teaching.html#idea",
+    "href": "ML_teaching.html#idea",
+    "title": "Machine learning ST3189",
+    "section": "Idea",
+    "text": "Idea\n\nIdea: Recall the assign table problem: we want to group guests in each table to have the largest in common."
+  },
+  {
+    "objectID": "ML_teaching.html#formal-problem-setting",
+    "href": "ML_teaching.html#formal-problem-setting",
+    "title": "Machine learning ST3189",
+    "section": "Formal Problem setting:",
+    "text": "Formal Problem setting:\nfind the sets \\(\\{C_{1},C_{2},\\cdots C_{K}\\}\\) such that the within-cluster variation \\[W\\left(C_{k}\\right)=\\frac{1}{|C_{k}|}\\sum_{i,i'\\in C_{k}} \\sum_{j=1}^p \\left(\\mathbf{x}_{i,j}-\\mathbf{x}_{i',j}\\right)^2  \\] is minimized. Here \\(\\left(\\mathbf{x}_{i,}-\\mathbf{x}_{j}\\right)^2\\) is squared Euclidean distance. \\[\\tag{12.17} \\min_{C_{1},C_{2},\\cdots C_{K}}\\sum_{k=1}^{K}W\\left(C_{k}\\right)\\]"
+  },
+  {
+    "objectID": "ML_teaching.html#algorithms",
+    "href": "ML_teaching.html#algorithms",
+    "title": "Machine learning ST3189",
+    "section": "Algorithms",
+    "text": "Algorithms\n\nInitialization: Randomly select \\(k\\) initial points to act as the initial centroids.\nIteration: Repeat the following steps until the cluster assignments no longer change:\n\nReassign cluster: For each observation, find the closest centroid and reassign the observation to the corresponding cluster.\nUpdate centroid: Recalculate the centroid of each cluster by taking the average position of all observations currently in that cluster."
+  },
+  {
+    "objectID": "ML_teaching.html#algorithms---an-example",
+    "href": "ML_teaching.html#algorithms---an-example",
+    "title": "Machine learning ST3189",
+    "section": "Algorithms - an example",
+    "text": "Algorithms - an example"
+  },
+  {
+    "objectID": "ML_teaching.html#intuition",
+    "href": "ML_teaching.html#intuition",
+    "title": "Machine learning ST3189",
+    "section": "Intuition",
+    "text": "Intuition\n\\[\\tag{12.18} W\\left(C_{k}\\right)=\\frac{1}{|C_{k}|}\\sum_{i,i'\\in C_{k}}\\sum_{j=1}^{p}\\left(\\mathbf{x}_{i,j}-\\mathbf{x}_{i',j}\\right)^{2}\\\\=\\frac{1}{|C_{k}|}\\sum_{i,i'\\in C_{k}}\\sum_{j=1}^{p}\\left(\\mathbf{x}_{i,j}-\\overline{\\mathbf{x}}_{k,j}\\right)^{2} \\]where \\(\\overline{\\mathbf{x}}_{k,j}\\) is the mean for feature \\(j\\) of points in \\(C_k\\) ( i.e. if we write the centroid of cluster \\(C_k\\) as \\((\\overline{\\mathbf{x}}_{k,1}, \\overline{\\mathbf{x}}_{k,1} \\cdots \\overline{\\mathbf{x}}_{k,j} \\cdots  \\overline{\\mathbf{x}}_{k,P})\\) , then \\(\\overline{\\mathbf{x}}_{k,j}\\) is the \\(j\\)’s element) (replace by figure)"
+  },
+  {
+    "objectID": "ML_teaching.html#intuition-1",
+    "href": "ML_teaching.html#intuition-1",
+    "title": "Machine learning ST3189",
+    "section": "Intuition",
+    "text": "Intuition\n\nthe step “Update centroid:” is relying on “centroid” (cluster means) to minimize the deviations within each group.\nand the step “reassign cluster” is to reallocating \\(\\mathbf{x}_{i,j}\\) to improve \\(W\\left(C_{k}\\right)\\)"
+  },
+  {
+    "objectID": "ML_teaching.html#how-do-we-know-we-find-the-best-clusters",
+    "href": "ML_teaching.html#how-do-we-know-we-find-the-best-clusters",
+    "title": "Machine learning ST3189",
+    "section": "How do we know we find the “best” clusters?",
+    "text": "How do we know we find the “best” clusters?"
+  },
+  {
+    "objectID": "ML_teaching.html#how-to-pick-the-k",
+    "href": "ML_teaching.html#how-to-pick-the-k",
+    "title": "Machine learning ST3189",
+    "section": "How to pick the K?",
+    "text": "How to pick the K?\n\nElbow approach"
+  },
+  {
+    "objectID": "ML_teaching.html#other-issues-sensitive-to-the-data-scale",
+    "href": "ML_teaching.html#other-issues-sensitive-to-the-data-scale",
+    "title": "Machine learning ST3189",
+    "section": "Other issues: sensitive to the data scale",
+    "text": "Other issues: sensitive to the data scale\nadd one example figure"
+  },
+  {
+    "objectID": "ML_teaching.html#step-1-simulate-data",
+    "href": "ML_teaching.html#step-1-simulate-data",
+    "title": "Machine learning ST3189",
+    "section": "STEP 1: simulate data",
+    "text": "STEP 1: simulate data\n\n# Set the number of points\nssize &lt;- 100\n# Example means/stds for 3 groups\nmeans &lt;- c(0, 1, 2)\nstds &lt;- c(0.5, 1, 1) \n# Initialize an empty data frame \npts &lt;- data.frame()\n# Loop through each group \nfor (i in seq_along(means)) {\n  group_pts &lt;- matrix(rnorm(ssize * 2,\n    mean = means[i], sd = stds[i]), ncol = 2)\n  group_df &lt;- as.data.frame(group_pts) %&gt;% mutate(Ptype = i)\n  pts &lt;- rbind(pts, group_df)\n}\n\n# Plotting with ggplot2, using Ptype as the color factor\nggplot(pts, aes(x=V1, y=V2, color=factor(Ptype))) +\n  geom_point() +\n  labs(title = \"Points from Multiple Groups\", x = \"X-axis\", y = \"Y-axis\", color = \"Point Type\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "ML_teaching.html#step-1-simulate-data-output",
+    "href": "ML_teaching.html#step-1-simulate-data-output",
+    "title": "Machine learning ST3189",
+    "section": "STEP 1: simulate data",
+    "text": "STEP 1: simulate data\n\n\n\n\n\n\n\nFigure 1: data distribution"
+  },
+  {
+    "objectID": "ML_teaching.html#step-2-run-kmeans-clustering",
+    "href": "ML_teaching.html#step-2-run-kmeans-clustering",
+    "title": "Machine learning ST3189",
+    "section": "STEP 2: run kmeans clustering",
+    "text": "STEP 2: run kmeans clustering\n\n# #| code-fold: true\nlibrary(ggplot2)\nlibrary(gridExtra)\nlibrary(dplyr)\nK=3\nplots &lt;- list() # Initialize an empty list to store the plots\nfor (i in 1:4) {\n  # Perform k-means clustering\n  km.out &lt;- kmeans(pts, centers = K, nstart = i) \n  \n  # Prepare the data frame from the original points\n  pts_df &lt;- as.data.frame(pts) %&gt;% mutate(cluster = as.factor(km.out$cluster))\n  \n  # Prepare the data frame for the cluster centers\n  centers_df &lt;- as.data.frame(km.out$centers) %&gt;% mutate(cluster = 1:K)\n  \n  # Generate the plot\n  p &lt;- ggplot() + \n    geom_point(data = pts_df, aes(x = V1, y = V2, color = cluster)) +  # Plot points colored by cluster\n    geom_point(data = centers_df, aes(x = V1, y = V2), color = \"black\", size = 3, shape = 17) +  # Plot centers\n    labs(title = paste(\"Iteration\", i, \"rounds; tot.withinss=\",  round(km.out$tot.withinss,2)  )) +  # Add iteration title\n    theme_minimal()  # Use minimal theme for cleaner look\n  \n  # Optionally add text to denote withinss for each cluster. Adjust coordinates as needed.\n  for (j in 1:4) {\n    p &lt;- p + annotate(\"text\", x = centers_df[j, 1], y = centers_df[j, 2], label =  round(km.out$withinss[j], 2), hjust = 1.5, vjust = -0.5)\n  }\n  \n  plots[[i]] &lt;- p # Store the plot in the list\n}\ngrid.arrange(grobs = plots, ncol = 2) # Arrange the plots in a 2 by 2 grid"
+  },
+  {
+    "objectID": "ML_teaching.html#step-2-run-kmeans-clustering-output",
+    "href": "ML_teaching.html#step-2-run-kmeans-clustering-output",
+    "title": "Machine learning ST3189",
+    "section": "STEP 2: run kmeans clustering",
+    "text": "STEP 2: run kmeans clustering"
+  },
+  {
+    "objectID": "ML_teaching.html#references",
+    "href": "ML_teaching.html#references",
+    "title": "Machine learning ST3189",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\n\nBishop, Christopher. 2006. “Pattern Recognition and Machine Learning.” Springer Google Schola 2: 5–43.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, Robert Tibshirani, et al. 2013. An Introduction to Statistical Learning. Vol. 112. Springer."
+  },
+  {
+    "objectID": "parallel_computing.html",
+    "href": "parallel_computing.html",
+    "title": "Parallel Computing in Python",
+    "section": "",
+    "text": "Thread and process\n\n\n\n\n\n\n\nThread: A thread is the smallest unit of a process that can be scheduled for execution. It is sometimes referred to as a “lightweight process” because it runs within the context of a larger process and shares its resources (such as memory and file handles).\n\n\n\n\n\nConcurrency: Threads allow multiple parts of a program to run concurrently, sharing the same memory space.\nGlobal Interpreter Lock (GIL): Python has a GIL which allows only one thread to execute at a time in a single process. This can be a bottleneck for CPU-bound tasks.\nUse Cases: Threads are useful for I/O-bound tasks, such as reading/writing to files, network operations, and user interactions.\n\n\n\n\n\nimport threading\n\ndef print_numbers():\n    for i in range(10):\n        print(i)\n\n# Creating a thread\nthread = threading.Thread(target=print_numbers)\n\n# Starting the thread\nthread.start()\n\n# Waiting for the thread to finish\nthread.join()\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\n\n\n\n\n\n\n\n\nProcess: A process is an instance of a program that is being executed. It contains its own memory space, file handles, and security context. Multiple processes can run independently and concurrently on a system.\n\n\n\n\n\nIsolation: Processes are isolated from each other. They do not share memory space, which prevents issues like race conditions but makes inter-process communication more complex.\nMultiprocessing: Pythons multiprocessing module allows the creation of processes, bypassing the GIL limitation and taking full advantage of multiple CPU cores.\nUse Cases: Processes are suitable for CPU-bound tasks that require heavy computation.\n\n\n\n\n\nimport multiprocessing\n\ndef print_numbers():\n    for i in range(10):\n        print(i)\n\n# Creating a process\nprocess = multiprocessing.Process(target=print_numbers)\n\n# Starting the process\nprocess.start()\n\n# Waiting for the process to finish\nprocess.join()\n\n\n\n\n\n\nMemory Space:\n\nThreads share the same memory space.\nProcesses have separate memory spaces.\n\nGIL:\n\nThreads are limited by the GIL in Python.\nProcesses bypass the GIL and can run on multiple CPU cores.\n\nCommunication:\n\nThreads communicate through shared memory.\nProcesses communicate using inter-process communication mechanisms like pipes and queues.\n\n\n\n\n\n\nThread: A lightweight unit of a process, sharing the same memory space. Suitable for I/O-bound tasks. Managed using the threading module.\nProcess: A heavier unit with its own memory space. Suitable for CPU-bound tasks. Managed using the multiprocessing module.\n\nThese concepts help in achieving concurrency and parallelism in Python programs, each suited for different types of tasks."
+  },
+  {
+    "objectID": "parallel_computing.html#thread-and-process",
+    "href": "parallel_computing.html#thread-and-process",
+    "title": "Parallel Computing in Python",
+    "section": "",
+    "text": "Thread and process\n\n\n\n\n\n\n\nThread: A thread is the smallest unit of a process that can be scheduled for execution. It is sometimes referred to as a “lightweight process” because it runs within the context of a larger process and shares its resources (such as memory and file handles).\n\n\n\n\n\nConcurrency: Threads allow multiple parts of a program to run concurrently, sharing the same memory space.\nGlobal Interpreter Lock (GIL): Python has a GIL which allows only one thread to execute at a time in a single process. This can be a bottleneck for CPU-bound tasks.\nUse Cases: Threads are useful for I/O-bound tasks, such as reading/writing to files, network operations, and user interactions.\n\n\n\n\n\nimport threading\n\ndef print_numbers():\n    for i in range(10):\n        print(i)\n\n# Creating a thread\nthread = threading.Thread(target=print_numbers)\n\n# Starting the thread\nthread.start()\n\n# Waiting for the thread to finish\nthread.join()\n\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n\n\n\n\n\n\n\n\n\nProcess: A process is an instance of a program that is being executed. It contains its own memory space, file handles, and security context. Multiple processes can run independently and concurrently on a system.\n\n\n\n\n\nIsolation: Processes are isolated from each other. They do not share memory space, which prevents issues like race conditions but makes inter-process communication more complex.\nMultiprocessing: Pythons multiprocessing module allows the creation of processes, bypassing the GIL limitation and taking full advantage of multiple CPU cores.\nUse Cases: Processes are suitable for CPU-bound tasks that require heavy computation.\n\n\n\n\n\nimport multiprocessing\n\ndef print_numbers():\n    for i in range(10):\n        print(i)\n\n# Creating a process\nprocess = multiprocessing.Process(target=print_numbers)\n\n# Starting the process\nprocess.start()\n\n# Waiting for the process to finish\nprocess.join()\n\n\n\n\n\n\nMemory Space:\n\nThreads share the same memory space.\nProcesses have separate memory spaces.\n\nGIL:\n\nThreads are limited by the GIL in Python.\nProcesses bypass the GIL and can run on multiple CPU cores.\n\nCommunication:\n\nThreads communicate through shared memory.\nProcesses communicate using inter-process communication mechanisms like pipes and queues.\n\n\n\n\n\n\nThread: A lightweight unit of a process, sharing the same memory space. Suitable for I/O-bound tasks. Managed using the threading module.\nProcess: A heavier unit with its own memory space. Suitable for CPU-bound tasks. Managed using the multiprocessing module.\n\nThese concepts help in achieving concurrency and parallelism in Python programs, each suited for different types of tasks."
+  },
+  {
+    "objectID": "parallel_computing.html#multi-threads",
+    "href": "parallel_computing.html#multi-threads",
+    "title": "Parallel Computing in Python",
+    "section": "Multi-threads",
+    "text": "Multi-threads\n\nBecause of the GIL, multithreading is only meaningful in cases that involve a lot of I/O.\nIn Python, due to the Global Interpreter Lock (GIL), true multi-threading can be limited, especially for CPU-bound tasks. However, you can still use multiple threads for I/O-bound tasks. For CPU-bound tasks, you might want to use multiprocessing instead. Here are examples of both approaches:\nThe following provides an exmaple:\n\nimport requests\nimport time\n\nURLS = [\n    'https://www.example.com',\n    'https://www.example.org',\n    'https://www.example.net'\n]\n\ndef fetch_content(url):\n    response = requests.get(url)\n    return response.text\n\nstart_time = time.time()\n\nfor url in URLS:\n    fetch_content(url)\n\nend_time = time.time()\n\nprint(f\"Single-threaded took {end_time - start_time} seconds\")\n\nSingle-threaded took 2.4284040927886963 seconds\n\n\n\nimport threading\nimport requests\nimport time\n\nURLS = [\n    'https://www.example.com',\n    'https://www.example.org',\n    'https://www.example.net'\n]\n\ndef fetch_content(url):\n    response = requests.get(url)\n    return response.text\n\nthreads = []\nstart_time = time.time()\n\nfor url in URLS:\n    thread = threading.Thread(target=fetch_content, args=(url,))\n    threads.append(thread)\n    thread.start()\n\nfor thread in threads:\n    thread.join()\n\nend_time = time.time()\n\nprint(f\"Multi-threaded took {end_time - start_time} seconds\")\n\nException in thread Thread-7 (fetch_content):\nTraceback (most recent call last):\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connection.py\", line 198, in _new_conn\n    sock = connection.create_connection(\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/util/connection.py\", line 60, in create_connection\n    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/socket.py\", line 955, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\nsocket.gaierror: [Errno 8] nodename nor servname provided, or not known\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 793, in urlopen\n    response = self._make_request(\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 491, in _make_request\n    raise new_e\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 467, in _make_request\n    self._validate_conn(conn)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 1099, in _validate_conn\n    conn.connect()\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connection.py\", line 616, in connect\n    self.sock = sock = self._new_conn()\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connection.py\", line 205, in _new_conn\n    raise NameResolutionError(self.host, self, e) from e\nurllib3.exceptions.NameResolutionError: &lt;urllib3.connection.HTTPSConnection object at 0x1623edb10&gt;: Failed to resolve 'www.example.com' ([Errno 8] nodename nor servname provided, or not known)\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/adapters.py\", line 589, in send\n    resp = conn.urlopen(\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/connectionpool.py\", line 847, in urlopen\n    retries = retries.increment(\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/urllib3/util/retry.py\", line 515, in increment\n    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]\nurllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.example.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"&lt;urllib3.connection.HTTPSConnection object at 0x1623edb10&gt;: Failed to resolve 'www.example.com' ([Errno 8] nodename nor servname provided, or not known)\"))\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/threading.py\", line 1016, in _bootstrap_inner\n    self.run()\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/ipykernel/ipkernel.py\", line 761, in run_closure\n    _threading_Thread_run(self)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/threading.py\", line 953, in run\n    self._target(*self._args, **self._kwargs)\n  File \"/var/folders/15/t1xp0kvx4wqbnx47hdpg43580000gn/T/ipykernel_50414/2859673308.py\", line 12, in fetch_content\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/api.py\", line 73, in get\n    return request(\"get\", url, params=params, **kwargs)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/api.py\", line 59, in request\n    return session.request(method=method, url=url, **kwargs)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/sessions.py\", line 589, in request\n    resp = self.send(prep, **send_kwargs)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/sessions.py\", line 703, in send\n    r = adapter.send(request, **kwargs)\n  File \"/Users/mlserver/miniforge3/envs/ml_env/lib/python3.10/site-packages/requests/adapters.py\", line 622, in send\n    raise ConnectionError(e, request=request)\nrequests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.example.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError(\"&lt;urllib3.connection.HTTPSConnection object at 0x1623edb10&gt;: Failed to resolve 'www.example.com' ([Errno 8] nodename nor servname provided, or not known)\"))\n\n\nMulti-threaded took 0.6069068908691406 seconds"
+  },
+  {
+    "objectID": "parallel_computing.html#a-templet-for-multiprocessing",
+    "href": "parallel_computing.html#a-templet-for-multiprocessing",
+    "title": "Parallel Computing in Python",
+    "section": "a templet for multiprocessing",
+    "text": "a templet for multiprocessing\n\nimport multiprocessing\nimport time\nimport os\n\n# Step 1: Define the complicated function\ndef complicated_function(data):\n    # Simulate a complicated computation\n    time.sleep(1)  # Replace with actual computation\n    return f\"Processed data: {data}\"\n\n# Step 2: Modify the wrapper function to load files\ndef wrapper(args):\n    input1, input2 = args\n    filename = f\"file_{input1}_{input2}.txt\"  # Construct the filename based on inputs\n    try:\n        with open(filename, 'r') as file:\n            data = file.read()\n        return complicated_function(data)\n    except FileNotFoundError:\n        return f\"File {filename} not found.\"\n\nif __name__ == \"__main__\":\n    # Example inputs\n    inputs1 = [1, 2, 3, 4]  # Example input set 1\n    inputs2 = ['a', 'b', 'c', 'd']  # Example input set 2\n\n    # Determine the number of available CPU cores\n    total_cores = multiprocessing.cpu_count()\n    print(f\"Total available CPU cores: {total_cores}\")\n\n    # Set the number of processes to use (adjustable)\n    num_processes = min(4, total_cores)  # For example, use up to 4 processes or the total number of cores, whichever is smaller\n    print(f\"Using {num_processes} CPU cores for parallel computation\")\n\n    # Create a list of argument pairs\n    args_list = [(i1, i2) for i1 in inputs1 for i2 in inputs2]\n\n    # Step 4: Use multiprocessing.Pool to parallelize\n    pool = multiprocessing.Pool(processes=num_processes)\n    results = pool.map(wrapper, args_list)\n\n    # Close the pool and wait for the work to finish\n    pool.close()\n    pool.join()\n\n    # Print the results\n    for result in results:\n        print(result)"
   }
 ]
